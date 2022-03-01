@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="content-language" content="en-us">
+<meta name="description" content="Android Code Design Patterns, It observes the ViewModel. Generally its recommended to expose the data to the ViewModel through Observables. Design patterns help to solve common design issues in object-oriented software.">
+
+<meta name="robots" content="index,follow">
+<meta name="googlebot" content="index,follow">
+   	
+   	
+<title>41  Android code design patterns  | Interior Design Apartment</title>
+<meta name="url" content="https://intodesigns.github.io/interior-apartment/android-code-design-patterns/" />
+<meta property="og:url" content="https://intodesigns.github.io/interior-apartment/android-code-design-patterns/">
+<meta property="article:author" content="Mike"> 
+<meta name="author" content="Mike">
+<meta name="geo.region" content="US">
+<meta name="geo.region" content="GB">
+<meta name="geo.region" content="CA">
+<meta name="geo.region" content="AU">
+<meta name="geo.region" content="IT">
+<meta name="geo.region" content="NL">
+<meta name="geo.region" content="DE">
+<link rel="canonical" href="https://intodesigns.github.io/interior-apartment/android-code-design-patterns/">
+<link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+<link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com">
+<link rel="preconnect" href="https://code.jquery.com">
+<link rel="dns-prefetch" href="https://code.jquery.com">
+<link rel="preconnect" href="https://i.pinimg.com">
+<link rel="dns-prefetch" href="https://i.pinimg.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://intodesigns.github.io/assets/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700">
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+<link rel="stylesheet" href="https://intodesigns.github.io/assets/css/main.css">
+<link rel="stylesheet" href="https://intodesigns.github.io/assets/css/theme.css">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "post",
+    "name": "41  Android code design patterns ",
+    "headline": "41  Android code design patterns ",
+    "alternativeHeadline": "",
+    "description": "Android UI design patterns. Generally its recommended to expose the data to the ViewModel through Observables. android code design patterns.",
+    "inLanguage": "en-us",
+    "isFamilyFriendly": "true",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/intodesigns.github.io\/interior-apartment\/android-code-design-patterns\/"
+    },
+    "author" : {
+        "@type": "Person",
+        "name": "Mike"
+    },
+    "creator" : {
+        "@type": "Person",
+        "name": "Mike"
+    },
+    "accountablePerson" : {
+        "@type": "Person",
+        "name": "Mike"
+    },
+    "copyrightHolder" : "Interior Design Apartment",
+    "copyrightYear" : "2022",
+    "dateCreated": "2022-02-26T22:17:30.00Z",
+    "datePublished": "2022-02-26T22:17:30.00Z",
+    "dateModified": "2022-02-26T22:17:30.00Z",
+    "publisher":{
+        "@type":"Organization",
+        "name": "Interior Design Apartment",
+        "url": "https://intodesigns.github.io/interior-apartment/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/intodesigns.github.io\/logo.png",
+            "width":"32",
+            "height":"32"
+        }
+    },
+    "image": "https://intodesigns.github.io/logo.png",
+    "url" : "https:\/\/intodesigns.github.io\/interior-apartment\/android-code-design-patterns\/",
+    "wordCount" : "1409",
+    "genre" : [ "home decor" ],
+    "keywords" : [ "Android" , "code" , "design" , "patterns" ]
+}
+</script>
+
+</head>
+  <body>    
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="https://intodesigns.github.io/interior-apartment/"><span style="text-transform: capitalize;font-weight: bold;">Interior Design Apartment</strong></a><button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               
+               <li class="nav-item"><a class="nav-link" href="https://intodesigns.github.io/contact/">Contact</a></li>
+               <li class="nav-item"><a class="nav-link" href="https://intodesigns.github.io/dmca/">Dmca</a></li>
+               <li class="nav-item"><a class="nav-link" href="https://intodesigns.github.io/privacy-policy/">Privacy Policy</a></li>
+               <li class="nav-item"><a class="nav-link" href="https://intodesigns.github.io/about/">About</a></li><li class="nav-item"><a class="nav-link" style="text-transform: capitalize;" href="https://intodesigns.github.io/interior-apartment/categories/interior-design-apartment/" title="Interior Design Apartment">Interior Design Apartment</a></li></ul>
+        </div>
+    </div>
+    </nav>
+    <main role="main" class="site-content">
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+        <div class="h-100 tofront">
+            <div class="row justify-content-between ">
+                <div class=" col-md-6 pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+                    <p class="text-uppercase font-weight-bold"><span class="catlist"><a class="sscroll text-danger" href="https://intodesigns.github.io/interior-apartment/categories/interior-design-apartment"/>Interior Design Apartment</a> . </span></p>
+                    <h1 class="display-4 mb-4 article-headline">41  Android code design patterns </h1>
+                    <div class="d-flex align-items-center">
+                        <small class="ml-3">Written by Mike <span class="text-muted d-block mt-1">Feb 26, 2022 · <span class="reading-time">7 min read</span></span></small>
+                    </div>
+                </div>
+                <div class="col-md-6 pr-0 align-self-center">
+                    <img class="rounded" src="https://i.pinimg.com/originals/0e/6b/9a/0e6b9a3373282362f52e098ac8a32087.png" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" alt="41  Android code design patterns "/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-lg pt-4 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-8">
+            <article class="article-post">
+            <p>Android UI design patterns. Generally its recommended to expose the data to the ViewModel through Observables. android code design patterns.</p>
+<p><strong>Android Code Design Patterns</strong>, It observes the ViewModel. Generally its recommended to expose the data to the ViewModel through Observables. Design patterns help to solve common design issues in object-oriented software.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/e6/a8/7b/e6a87b481be2910676e4fdb34c4fe063.png" alt="Pin On Android Ui" title="Pin On Android Ui" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" />
+Pin On Android Ui From pinterest.com</p>
+<p>Android users expect your app to look and behave in a way thats consistent with the platform. SharedPreferences most Firebase APIs OkHttpClient Database connection Retrofit Gson etc. Android Design Patterns is a website for developers who wish to better understand the Android application framework.</p>
+<h3 id="we-will-just-showhide-home-button-and-other-buttons-whenever-needed">We will just showhide home button and other buttons whenever needed.</h3><p>Common Architectural Design Patterns in Android. Overview Guides Reference Samples Design Quality. Google didnt push for one single design pattern for Android in the beginning. Anytime the state of one of the objects the subject or observable changes all of the other objects observers that depend on it are notified. But remember one-thing design patterns are programming language independent strategies for solving the common object-oriented design problems. Yes we define title bar header layout only once but it requires in every screens.</p>
+<p><strong>Another Article :</strong>
+<span class="navi text-left"><a class="badge badge-info" href="/banner-background-design-psd/">Banner background design psd</a></span>
+<span class="navi text-left"><a class="badge badge-danger" href="/bandar-sierra-apartment-for-sale/">Bandar sierra apartment for sale</a></span>
+<span class="navi text-left"><a class="badge badge-info" href="/bansri-mehta-design/">Bansri mehta design</a></span>
+<span class="navi text-left"><a class="badge badge-primary" href="/barlow-funeral-home-bardstown-ky-obituaries/">Barlow funeral home bardstown ky obituaries</a></span>
+<span class="navi text-left"><a class="badge badge-primary" href="/based-in-income-apartments-near-me/">Based in income apartments near me</a></span></p>
+<div class="d-block p-4">
+	<center>
+	<script type="text/javascript">
+	atOptions = {
+		'key' : '044478bac56eb613662b93ef204db084',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.creativeformatsnetwork.com/044478bac56eb613662b93ef204db084/invoke.js"></scr' + 'ipt>');
+	</script>
+	</center>
+</div>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/6c/29/fb/6c29fb9be51d66b188490eb87ba73816.png" alt="Android Education App Home Designs With Dark Mode Android Design Android Tutorials App Home" title="Android Education App Home Designs With Dark Mode Android Design Android Tutorials App Home" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>Having worked as an Android developer for a few years now the lack of an established design. This repository will demonstrate how to apply design patterns to the iOS Android and Rails frameworks and give you a deeper understanding of when and how to use these patterns. Design patterns help to solve common design issues in object-oriented software. Yes we define title bar header layout only once but it requires in every screens. RxAndroid Model View Controller. Android Education App Home Designs With Dark Mode Android Design Android Tutorials App Home.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/736x/1d/89/8c/1d898c345c4f414aa3ba73503ddff9ce--google-material-android-ui.jpg" alt="Pin On Ui Ux Design" title="Pin On Ui Ux Design" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>It shows uses of design patterns in Java and Android. RxAndroid Model View Controller. Supports up to Android 6. Examples of Singleton patterns in Android Framework and Libraries are. This repository will demonstrate how to apply design patterns to the iOS Android and Rails frameworks and give you a deeper understanding of when and how to use these patterns. Pin On Ui Ux Design.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/37/ad/ab/37adab5b67219c3919da238cc8fbf422.png" alt="Material Design Google Design Guidelines Material Design Design Guidelines" title="Material Design Google Design Guidelines Material Design Design Guidelines" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>Pattern Android Developers. 10 Android UI Design Patterns 1. That means a design pattern represents an idea not a particular implementation. It shows uses of design patterns in Java and Android. Design for Android. Material Design Google Design Guidelines Material Design Design Guidelines.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/ac/4e/44/ac4e448888d9a38c37db38ff4e6b0031.png" alt="Android Design Patterns The Observer Pattern Software Design Patterns Android Design Pattern Design" title="Android Design Patterns The Observer Pattern Software Design Patterns Android Design Pattern Design" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>Examples of Singleton patterns in Android Framework and Libraries are. This is a typica l locker design for Android apps. Refactoring our code The MVP design pattern for Android by Wolox Engineering Wolox Medium. Having worked as an Android developer for a few years now the lack of an established design. Generally its recommended to expose the data to the ViewModel through Observables. Android Design Patterns The Observer Pattern Software Design Patterns Android Design Pattern Design.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/08/df/42/08df424d14d40c418bb42fbab8a6dc18.png" alt="Free Android Form Designs With Xml Code Coding Apps Form Design Android Design" title="Free Android Form Designs With Xml Code Coding Apps Form Design Android Design" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>Language English Bahasa Indonesia Español América Latina Português Brasil 中文 简体 日本語 한국어. Lets use the example of users that have subscribed to receive offers from Envato Market. This is a typica l locker design for Android apps. Yes we define title bar header layout only once but it requires in every screens. Anytime the state of one of the objects the subject or observable changes all of the other objects observers that depend on it are notified. Free Android Form Designs With Xml Code Coding Apps Form Design Android Design.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/474x/39/4f/48/394f485cc206a0008e5b78effb297b25--interface-design-design-design.jpg" alt="Material Design Google Material Design Google Design Guidelines Google Material" title="Material Design Google Material Design Google Design Guidelines Google Material" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>AlertDialogBuilder Dependency Injection eg. Secure Android Unlock Code - Choose Better Patterns. SharedPreferences most Firebase APIs OkHttpClient Database connection Retrofit Gson etc. 10 Android UI Design Patterns 1. Refactoring our code The MVP design pattern for Android by Wolox Engineering Wolox Medium. Material Design Google Material Design Google Design Guidelines Google Material.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/474x/51/f6/48/51f6484844078938cdbabfbfa2f7efd0.jpg" alt="Free Android Form Design With Source Code Preview Coding Apps App Coding" title="Free Android Form Design With Source Code Preview Coding Apps App Coding" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>Google didnt push for one single design pattern for Android in the beginning. Refactoring our code The MVP design pattern for Android by Wolox Engineering Wolox Medium. In this module you will learn the creational and structural design patterns. Having worked as an Android developer for a few years now the lack of an established design. It represents the UI of the application devoid of any Application Logic. Free Android Form Design With Source Code Preview Coding Apps App Coding.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/aa/c8/02/aac802abafa685ce397bc7c7c28f493a.png" alt="Action Bar Android Developers Material Design Design Open Source Code" title="Action Bar Android Developers Material Design Design Open Source Code" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: in.pinterest.com</center>
+<p>10 Android UI Design Patterns 1. Secure Android Unlock Code - Choose Better Patterns. Lets use the example of users that have subscribed to receive offers from Envato Market. The following list is a compilation of design patterns that we have explanations and code examples for. You will learn what they are and how they can be applied. Action Bar Android Developers Material Design Design Open Source Code.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/e9/68/bc/e968bc7cfcbd9b5fc879831ee1fc52d5.png" alt="Material Design Design Guidelines Google Design Guidelines Android App Design" title="Material Design Design Guidelines Google Design Guidelines Android App Design" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>Design for Android. Lets use the example of users that have subscribed to receive offers from Envato Market. It is recommended you choose a strong lock pattern for better. This is a typica l locker design for Android apps. RxAndroid Model View Controller. Material Design Design Guidelines Google Design Guidelines Android App Design.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/736x/29/f9/6e/29f96e45b3afa2fafa39f440a350d20e--design-patterns-ux-design.jpg" alt="Designing Settings Android Design Guidelines Interactive Design Design Guidelines" title="Designing Settings Android Design Guidelines Interactive Design Design Guidelines" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>In this module you will learn the creational and structural design patterns. This repository will demonstrate how to apply design patterns to the iOS Android and Rails frameworks and give you a deeper understanding of when and how to use these patterns. Anytime the state of one of the objects the subject or observable changes all of the other objects observers that depend on it are notified. Go through the examples on the Android developer website and then write as much code as you can. But remember one-thing design patterns are programming language independent strategies for solving the common object-oriented design problems. Designing Settings Android Design Guidelines Interactive Design Design Guidelines.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/474x/73/b9/2c/73b92c512685491f73b678c98ffc1caf--android-design-design-patterns.jpg" alt="Android Design Patterns Interaction Design Solutions For Developers Greg Nudelman 9781118394151 Amazon C Android Design Interactive Design Design Solutions" title="Android Design Patterns Interaction Design Solutions For Developers Greg Nudelman 9781118394151 Amazon C Android Design Interactive Design Design Solutions" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>It cannot directly talk to the View. You will continue to learn and practice expressing designs in UML and code some of these patterns in Java. Anytime the state of one of the objects the subject or observable changes all of the other objects observers that depend on it are notified. Model-View-Controller MVC and Model-View-Presenter MVP are two design patterns that are very similar and have much in common with MVVM. Design patterns help to solve common design issues in object-oriented software. Android Design Patterns Interaction Design Solutions For Developers Greg Nudelman 9781118394151 Amazon C Android Design Interactive Design Design Solutions.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/e6/a8/7b/e6a87b481be2910676e4fdb34c4fe063.png" alt="Pin On Android Ui" title="Pin On Android Ui" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>It represents the UI of the application devoid of any Application Logic. This Singleton class may be responsible for instantiating itself or you can delegate the. That means a design pattern represents an idea not a particular implementation. Model-View-Controller MVC and Model-View-Presenter MVP are two design patterns that are very similar and have much in common with MVVM. Google didnt push for one single design pattern for Android in the beginning. Pin On Android Ui.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/736x/fc/31/af/fc31af4d4f600e28c338e9165e6cdf3b.jpg" alt="Pin On Login" title="Pin On Login" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>41 rows Android UI designing can be done either in XML or programmatically in. Supports up to Android 6. Anytime multiple classes or clients request for that class they get the same instance of the class. Overview Guides Reference Samples Design Quality. Posts about design patterns from this repository can be found at httpandroidcodeplblog This repository contains the following design patterns. Pin On Login.</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/564x/28/d0/65/28d065297d3566106f97ec20004da036.jpg" alt="" title="" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>The Singleton Pattern is a software design pattern that guarantees a class has one instance only and a global point of access to it is provided by that class. Yes we define title bar header layout only once but it requires in every screens. RxAndroid Model View Controller. Anytime the state of one of the objects the subject or observable changes all of the other objects observers that depend on it are notified. Examples of Singleton patterns in Android Framework and Libraries are. .</p>
+<p><img loading="lazy" width="100%" src="https://intodesigns.github.io/img/placeholder.svg" data-src="https://i.pinimg.com/originals/0e/6b/9a/0e6b9a3373282362f52e098ac8a32087.png" alt="Pin On Android Apps" title="Pin On Android Apps" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';" class="center" /></p>
+<center>Source: pinterest.com</center>
+<p>Anytime the state of one of the objects the subject or observable changes all of the other objects observers that depend on it are notified. Refactoring our code The MVP design pattern for Android by Wolox Engineering Wolox Medium. Not only should you follow material design guidelines for visual and navigation patterns but you should also follow quality guidelines for compatibility performance security and more. The Singleton Pattern is a software design pattern that guarantees a class has one instance only and a global point of access to it is provided by that class. The tutorials here emphasize proper code design and. Pin On Android Apps.</p>
+
+
+            </article>
+            <div class="row"><div class="posts-image" style="width:50%;"><a style="margin:5px;" href="/interior-apartment/alamo-manhattan-bishop-arts-apartments/">&laquo;&laquo;&nbsp;89 Top Alamo manhattan bishop arts apartments Trend in This Years</a></div>
+    <div class="posts-image" style="width:50%"><a style="margin:5px;" href="/interior-apartment/aspen-heights-apartments-fort-collins/">21 Sample Aspen heights apartments fort collins Trend in This Years&nbsp;&raquo;&raquo;</a></div></div>
+            
+            <div class="mb-4">
+                <span class="taglist"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+<div class="container pt-4 pb-4">
+    
+    <h5 class="font-weight-bold spanborder"><span>Related Article</span></h5>
+    <div class="row">
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/apartments-snelling-and-selby/"><img height="80" src="/img/placeholder.svg" data-src="https://static.wixstatic.com/media/a1ca30_cb9f44c48bb4456db99a12eaee4cf5ef.jpg/v1/fill/w_1000,h_375,al_c,q_90,usm_0.66_1.00_0.01/a1ca30_cb9f44c48bb4456db99a12eaee4cf5ef.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/apartments-snelling-and-selby/">27 Awesome Apartments snelling and selby </a>
+                        </h2>
+                        <small class="text-muted">Jul 28 . 6 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/australia-designer-clothes/"><img height="80" src="/img/placeholder.svg" data-src="https://i.pinimg.com/736x/aa/07/ef/aa07ef51fcf7fb5e605d897057b18233--love-is-clutch.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/australia-designer-clothes/">38 Awesome Australia designer clothes Trend in This Years</a>
+                        </h2>
+                        <small class="text-muted">Feb 14 . 6 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/apart-hotel-iquique-chile/"><img height="80" src="/img/placeholder.svg" data-src="https://i.pinimg.com/originals/e2/b8/23/e2b823d3b00b03aa480e122446bb157f.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/apart-hotel-iquique-chile/">55 Awesome Apart hotel iquique chile Info</a>
+                        </h2>
+                        <small class="text-muted">Feb 26 . 7 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/apartments-near-ala-moana-mall/"><img height="80" src="/img/placeholder.svg" data-src="https://images1.apartments.com/i2/wEVB6VzC2bbKKazWUgYb6vdpdgt_6yfJPkKq3w-fqZc/118/1118-ala-moana-blvd-unit-1106-honolulu-hi-building-photo.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/apartments-near-ala-moana-mall/">15 Great Apartments near ala moana mall with Sample Images</a>
+                        </h2>
+                        <small class="text-muted">Feb 02 . 9 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/apartments-for-rent-in-yonkers-new-york-by-owner/"><img height="80" src="/img/placeholder.svg" data-src="https://res.cloudinary.com/apartmentlist/image/upload/f_auto,q_auto,t_web-base/b176b3e49563e6105d2ce40715c5bd05.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/apartments-for-rent-in-yonkers-new-york-by-owner/">91 Great Apartments for rent in yonkers new york by owner Info</a>
+                        </h2>
+                        <small class="text-muted">Aug 30 . 7 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/assurant-apartment-insurance-login/"><img height="80" src="/img/placeholder.svg" data-src="https://i.pinimg.com/originals/52/dd/31/52dd31feaacfb6ae775951f4ad6cc655.png" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/assurant-apartment-insurance-login/">13 Great Assurant apartment insurance login Info</a>
+                        </h2>
+                        <small class="text-muted">Dec 07 . 2 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/basement-apartments-for-rent-in-baltimore-md/"><img height="80" src="/img/placeholder.svg" data-src="https://i.pinimg.com/564x/32/07/02/32070299ccf3dd6dffc50e236aa8734c.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/basement-apartments-for-rent-in-baltimore-md/">45 Great Basement apartments for rent in baltimore md </a>
+                        </h2>
+                        <small class="text-muted">Feb 19 . 8 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/apartments-for-rent-in-phoenix-az-85040/"><img height="80" src="/img/placeholder.svg" data-src="https://i.pinimg.com/originals/87/18/b0/8718b0f33a3177b26d5d46933496c8b5.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/apartments-for-rent-in-phoenix-az-85040/">60 Top Apartments for rent in phoenix az 85040 with Sample Images</a>
+                        </h2>
+                        <small class="text-muted">Jun 08 . 7 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/apartment-pros-san-marcos-tx/"><img height="80" src="/img/placeholder.svg" data-src="https://ap.rdcpix.com/52f037299cb902cecc5dc5a22fd149b5l-m813677729xd-w1020_h770_q80.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/apartment-pros-san-marcos-tx/">90 Awesome Apartment pros san marcos tx </a>
+                        </h2>
+                        <small class="text-muted">May 22 . 8 min read</small>
+                    </div>
+                </div>
+        </div>
+        <div class="col-lg-6">
+                <div class="mb-3 d-flex align-items-center">
+                    <a href="/interior-apartment/justin-bieber-brooklyn-apartment-address/"><img height="80" src="/img/placeholder.svg" data-src="https://i.pinimg.com/originals/f8/09/40/f80940a8eb3b17dd90f7be50dfb481f3.jpg" onerror="this.onerror=null;this.src='https:\/\/intodesigns.github.io\/img\/placeholder.svg';"/></a>
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                        <a class="text-dark" href="/interior-apartment/justin-bieber-brooklyn-apartment-address/">81 Sample Justin bieber brooklyn apartment address </a>
+                        </h2>
+                        <small class="text-muted">Jul 20 . 8 min read</small>
+                    </div>
+                </div>
+        </div>
+</div>
+</div>
+</div>
+    </main>    <script async="async" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script async="async" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script async="async" src="https://intodesigns.github.io/assets/js/theme.js"></script>
+    <script>function init(){var imgDefer=document.getElementsByTagName('img');for (var i=0; i<imgDefer.length; i++){if(imgDefer[i].getAttribute('data-src')){imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));}}}window.onload=init;</script>
+    
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div><span style="text-transform: capitalize;"><a href="https://intodesigns.github.io/interior-apartment/">Interior Design Apartment</a> Copyright &copy; 2022.</span></div>
+            
+        </div>
+        </div>
+    </footer>
+
+
+<script type="text/javascript">
+var sc_project=12673169; 
+var sc_invisible=1; 
+var sc_security="7426f851"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12673169/0/7426f851/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+  </body>
+</html>
